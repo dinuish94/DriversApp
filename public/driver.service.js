@@ -18,7 +18,9 @@ angular.module('DriverApp').factory('DriverService',function () {
     }];
 
     return{
-        getDrivers: ()=>{drivers}
+        getDrivers: function() {
+            return drivers;
+        }
     }
 
 });
