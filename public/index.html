@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular JS</title>
+    <base href="/app/">
+    <link rel="stylesheet" href="modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="modules/bootstrap/dist/css/bootstrap-theme.css">
+    <script src="modules/jquery/dist/jquery.min.js"></script>
+    <script src="modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="modules/angular/angular.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="styles.css" rel='stylesheet' type='text/css'>
+    <script src="routes.js"></script>
+    <script src="app.module.js"></script>
+    <script src="driver.service.js"></script>
+    <script src="main.controller.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+</head>
+<body>
+<div class="container" ng-app="DriverApp" ng-controller="MainController">
+    <div class="row">
+        <div class="col-md-5">
+        <h2 class="header">Welcome to Driver App</h2>
+        </div>
+    </div>
+    <div ng-view></div>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-1">
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <h3 class="panel-title">Drivers</h3>
+                            </div>
+                            <div class="col col-xs-6 text-right">
+                                <button type="button" class="btn btn-sm btn-primary btn-create">Create New</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered table-list">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Birthday</th>
+                                <th>Vehicle</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="driver in drivers">
+                                <td>{{driver.ranking}}</td>
+                                <td>{{driver.firstName}}</td>
+                                <td>{{driver.lastName}}</td>
+                                <td>{{driver.birthday}}</td>
+                                <td>{{driver.vehicle}}</td>
+                                <td align="center">
+                                    <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <form>
+                    <div class="form-group">
+                        <label for="rank">Ranking</label>
+                        <input id="rank" class="form-control" type="text" placeholder="Rank" ng-model="driver.ranking">
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <input id="fname" class="form-control" type="text" placeholder="First name" ng-model="driver.firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last name" ng-model="driver.lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">Birthday</label>
+                        <input type="text" class="form-control" placeholder="Birthday" ng-model="driver.birthday">
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">Vehicle</label>
+                        <input type="text" class="form-control" placeholder="Vehicle" ng-model="driver.vehicle">
+                    </div>
+                    <div class="form-group">
+                        <button ng-click="addDriver(driver)" class="btn btn-sm btn-primary btn-create">Add</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
