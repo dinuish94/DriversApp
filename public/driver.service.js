@@ -20,6 +20,10 @@ angular.module('DriverApp').factory('DriverService',function () {
     return{
         getDrivers: function() {
             return drivers;
+        },
+        addDriver: function(driver){
+            "use strict";
+            drivers.push(driver);
         }
     }
 

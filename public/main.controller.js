@@ -18,6 +18,8 @@ angular.module('DriverApp').controller('MainController',['$scope','DriverService
     $scope.drivers = DriverService.getDrivers();
 
     $scope.addDriver = function (driver) {
-        $scope.drivers.push(driver);
+        // $scope.drivers.push(driver);
+        DriverService.addDriver(driver);
+        $scope.drivers = DriverService.getDrivers();
     }
 }]);
